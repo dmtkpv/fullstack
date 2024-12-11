@@ -1,0 +1,46 @@
+{
+  "name": "@vacature/api",
+  "type": "module",
+  "scripts": {
+    "serve": "node server",
+    "script": "node script",
+    "database": "knex --knexfile ./config/database.js"
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "0.27.2",
+    "@google-cloud/storage": "7.11.2",
+    "@googlemaps/google-maps-services-js": "3.3.42",
+    "@vacature/shared": "workspace:*",
+    "axios": "1.7.2",
+    "bcrypt": "5.1.1",
+    "busboy": "1.6.0",
+    "cookie-parser": "1.4.6",
+    "cors": "2.8.5",
+    "express": "4.19.2",
+    "form-data": "4.0.0",
+    "googleapis": "140.0.1",
+    "he": "1.2.0",
+    "is-url-http": "2.3.8",
+    "joi": "17.9.2",
+    "jsonwebtoken": "9.0.2",
+    "knex": "3.1.0",
+    "lodash-es": "4.17.21",
+    "mailgun.js": "10.2.1",
+    "mime-types": "2.1.35",
+    "morgan": "1.10.0",
+    "mustache": "4.2.0",
+    "nanoid": "5.0.7",
+    "nodemailer": "6.9.16",
+    "nodemailer-mailgun-transport": "2.1.5",
+    "pg": "8.11.3",
+    "sanitize-html": "2.13.0",
+    "sharp": "0.33.4",
+    "socket.io": "4.7.5",
+    "stripe": "14.25.0",
+    "uuid": "9.0.1",
+    "xmlbuilder2": "3.1.1"
+  },
+  "imports": {
+    "#api/*": "./*"
+  }
+}

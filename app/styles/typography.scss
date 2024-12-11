@@ -1,0 +1,61 @@
+// -----------------
+// Common
+// -----------------
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: $t5;
+    color: $black;
+    line-height: 1.5;
+}
+small {
+    font-size: $t7;
+}
+b, strong {
+    font-weight: $w6;
+}
+
+
+
+// -----------------
+// Weight
+// -----------------
+
+.w4 { font-weight: $w4 };
+.w5 { font-weight: $w5 };
+.w6 { font-weight: $w6 };
+
+
+
+
+// -----------------
+// Texts
+// -----------------
+
+.t1 { font-size: $t1; }
+.t2 { font-size: $t2; }
+.t3 { font-size: $t3; }
+.t4 { font-size: $t4; }
+.t5 { font-size: $t5; }
+.t6 { font-size: $t6; }
+.t7 { font-size: $t7; }
+
+
+
+// -----------------
+// Headings
+// -----------------
+
+%heading {
+    font-weight: $w6;
+    color: $black;
+    line-height: 1.2;
+}
+
+.h1 { font-size: $t1; @extend %heading; }
+.h2 { font-size: $t2; @extend %heading; }
+.h3 { font-size: $t3; @extend %heading; }
+.h4 { font-size: $t4; @extend %heading; }
+.h5 { font-size: $t5; @extend %heading; }
+.h6 { font-size: $t6; @extend %heading; }
+.h7 { font-size: $t7; @extend %heading; }

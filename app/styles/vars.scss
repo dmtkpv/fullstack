@@ -1,0 +1,22 @@
+:root {
+
+    --md: #{$md};
+    --sm: #{$sm};
+
+    --gap: 24px;
+    --gap-lg: 32px;
+
+    --padding-y: 48px;
+    --padding-x: 48px;
+
+    @include lg-md {
+        --header: 80px;
+    }
+
+    @include sm {
+        --padding-x: 24px;
+        --header: 64px;
+        --gap-lg: 24px;
+    }
+
+}

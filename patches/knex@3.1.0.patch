@@ -1,0 +1,40 @@
+diff --git a/lib/execution/transaction.js b/lib/execution/transaction.js
+index c5a60ce3ef62479d385376d668897e04a7c5af5f..97ecb4394ab9e8b68c7066a03154b18206fdf7b0 100644
+--- a/lib/execution/transaction.js
++++ b/lib/execution/transaction.js
+@@ -336,6 +336,7 @@ function makeTransactor(trx, connection, trxClient) {
+ // connection and does not release back into the pool.
+ function makeTxClient(trx, client, connection) {
+   const trxClient = Object.create(client.constructor.prototype);
++  trxClient.userParams = client.userParams;
+   trxClient.version = client.version;
+   trxClient.config = client.config;
+   trxClient.driver = client.driver;
+diff --git a/lib/knex-builder/make-knex.js b/lib/knex-builder/make-knex.js
+index 7345708c360d3261f1a624ba2e889353e8d8ad1e..9f62ae1f55992db6462974687cc8b069d55edf30 100644
+--- a/lib/knex-builder/make-knex.js
++++ b/lib/knex-builder/make-knex.js
+@@ -220,7 +220,7 @@ function initContext(knexFn) {
+       _copyEventListeners('query-error', knexFn, knexClone);
+       _copyEventListeners('query-response', knexFn, knexClone);
+       _copyEventListeners('start', knexFn, knexClone);
+-      knexClone.userParams = params;
++      knexClone.userParams = knexClone.client.userParams = params;
+       return knexClone;
+     },
+   });
+diff --git a/lib/query/querybuilder.js b/lib/query/querybuilder.js
+index 0d3cff51d74dcd0b06466e36ac6136047e7c39bd..f26bbe8c23fe64d12a44ade0f751b6e64d8f0a6a 100644
+--- a/lib/query/querybuilder.js
++++ b/lib/query/querybuilder.js
+@@ -74,6 +74,10 @@ class Builder extends EventEmitter {
+     this._notFlag = false;
+     this._asColumnFlag = false;
+   }
++  
++  get userParams () {
++    return this.client.userParams;
++  }
+ 
+   toString() {
+     return this.toQuery();

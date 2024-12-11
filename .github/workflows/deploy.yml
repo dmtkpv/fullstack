@@ -1,0 +1,31 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - development
+      - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Set Mode for Development
+        if: github.ref == 'refs/heads/development'
+        run: echo "MODE=DEVELOPMENT" >> $GITHUB_ENV
+
+      - name: Set Mode for Production
+        if: github.ref == 'refs/heads/production'
+        run: echo "MODE=PRODUCTION" >> $GITHUB_ENV
+
+      - name: Deploy
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets[format('{0}_HOST', env.MODE)] }}
+          username: ${{ secrets[format('{0}_USERNAME', env.MODE)] }}
+          key: ${{ secrets[format('{0}_PRIVATE_KEY', env.MODE)] }}
+          script: |
+            cd /srv/fullstack
+            git pull origin ${{ github.ref_name }}
+            bash /srv/fullstack/bin/deploy.sh

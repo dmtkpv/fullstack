@@ -1,0 +1,8 @@
+.idea
+.env
+node_modules
+pnpm-lock.yaml
+google.json
+backups
+app/dist
+app/public/sitemap*.xml

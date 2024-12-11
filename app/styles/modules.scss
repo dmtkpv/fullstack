@@ -1,0 +1,291 @@
+// -----------------
+// Common
+// -----------------
+
+main {
+    margin-top: $header;
+}
+hr {
+    margin: 0;
+    border: none;
+    border-top: $border;
+}
+.link {
+    display: inline-block;
+    color: $blue;
+    &:hover { color: $blue-dark }
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.cut {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.break {
+    word-break: break-word;
+}
+.ul-reset {
+    margin:0;
+    padding: 0;
+    text-indent: 0;
+    list-style-type: none;
+}
+.unread {
+    min-width: 16px;
+    padding: 1px 4px;
+    height: 16px;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-align: center;
+    background: $blue;
+    color: $white;
+}
+
+
+
+// -----------------
+// Tile
+// -----------------
+
+.tile {
+
+    background: $white;
+    border-radius: $radius;
+    box-shadow: $shadow;
+    border: 0.5px solid #ecedf2;
+
+    &._padded {
+        padding: $gap-lg;
+    }
+
+    &._disabled {
+        opacity: .25;
+        pointer-events: none;
+    }
+
+}
+
+
+
+// -----------------
+// Auth
+// -----------------
+
+.auth {
+
+    position: relative;
+    max-width: 480px;
+
+    @at-root main & header {
+        text-align: center;
+        a { display: none }
+    }
+
+    .ui-button {
+        width: 100%;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: $gap-lg;
+        &:not(:last-child) { margin-bottom: 16px; }
+    }
+
+}
+
+
+
+// -----------------
+// Landing
+// -----------------
+
+.landing {
+
+    overflow-x: hidden; /* fix landing-hero */
+
+    .container-md, .container-sm {
+        padding-top: 96px;
+        padding-bottom: 96px;
+    }
+
+    .container-md + .container-md {
+        position: relative;
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: $padding-x;
+            right: $padding-x;
+            border-top: $border;
+        }
+
+    }
+
+}
+
+
+
+// -----------------
+// Heading
+// -----------------
+
+.heading {
+
+    @extend .row;
+    align-items: flex-end;
+    margin-bottom: $gap;
+
+    & > *:first-child {
+        flex-grow: 1;
+        @include sm { flex-basis: 100% }
+    }
+
+    .ui-button span {
+        font-size: $t6;
+    }
+
+    .i-input {
+        background: $white;
+        box-shadow: $shadow;
+    }
+
+    @include sm {
+        justify-content: space-between;
+    }
+
+}
+
+
+
+// -----------------
+// Hero
+// -----------------
+
+.hero {
+
+    padding: $gap-lg;
+
+    @include lg {
+        display: flex;
+        align-items: center;
+    }
+
+
+    // content
+
+    &_content {
+
+        flex-grow: 1;
+
+        .ui-auth {
+            display: none;
+        }
+
+        .unit-job_heading .h5,
+        .unit-company_heading .h5,
+        .unit-candidate_heading .h5 {
+            font-size: $t4;
+        }
+
+    }
+
+
+    // actions
+
+    &_actions {
+
+        @extend .row;
+
+        @include lg {
+            flex-shrink: 0;
+            justify-content: flex-end;
+            padding-left: $gap-lg;
+        }
+
+        @include md-sm {
+            margin-top: $gap-lg;
+            padding-top: $gap-lg;
+            border-top: $border;
+        }
+
+    }
+
+
+}
+
+
+
+// -----------------
+// Center
+// -----------------
+
+.center {
+
+    padding: $padding-y $padding-x;
+    min-height: calc(100vh - $header);
+    display: flex;
+
+    & > * {
+        margin: auto;
+        flex-grow: 1;
+    }
+
+}
+
+
+
+// -----------------
+// Alert
+// -----------------
+
+.alert {
+    border-radius: $radius;
+    padding: 14px 24px;
+    &._error { @extend %red-light; }
+    &._success { @extend %blue-light; }
+}
+
+
+
+// -----------------------------
+// Box (inputs, files)
+// -----------------------------
+
+.box {
+    display: flex;
+    align-items: center;
+    border-radius: $radius;
+    padding: 8px 12px;
+    min-height: 48px;
+    min-width: 0;
+    gap: 8px;
+    & > svg { flex-shrink: 0 }
+}
+
+
+
+// -----------------
+// Containers
+// -----------------
+
+%container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: $padding-y $padding-x;
+}
+
+.container-md {
+    @extend %container;
+    @include lg { max-width: $md }
+    @include md { max-width: 1024px }
+}
+
+.container-sm {
+    @extend %container;
+    @include lg-md { max-width: 1024px }
+}

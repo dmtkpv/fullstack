@@ -1,0 +1,132 @@
+// -----------------
+// CSS Vars
+// -----------------
+
+$padding-x: var(--padding-x);
+$padding-y: var(--padding-y);
+$header: var(--header);
+$gap: var(--gap);
+$gap-lg: var(--gap-lg);
+
+
+
+// -----------------
+// Colors
+// -----------------
+
+$bg: #FBFDFF;
+$black: #1e2022;
+$white: #FFFFFF;
+$translucent: rgba(32, 33, 36, 0.5);
+
+$grey: #77838f;
+$grey-light: #ecedf2;
+
+$blue: #00a0ff;
+$blue-dark: #0088d9;
+$blue-light: #F0F5F7;
+
+$red: #d93025;
+$red-dark: #ae261e;
+$red-light: rgba(217, 48, 37, 0.1);
+
+$yellow: #f9ab00;
+$yellow-dark: #E9A000;
+$yellow-light: rgba(249,171,0,.1);
+
+$green: #2bb950;
+$green-dark: #239741;
+$green-light: rgba(52,168,83,.1);
+
+
+
+// -----------------
+// Typography
+// -----------------
+
+$w4: 400;
+$w5: 500;
+$w6: 600;
+
+$t1: 56px;
+$t2: 40px;
+$t3: 28px;
+$t4: 20px;
+$t5: 16px;
+$t6: 14px;
+$t7: 12px;
+
+
+
+// -----------------
+// Styles
+// -----------------
+
+$radius: 8px;
+$border: 1px solid $grey-light;
+$shadow: 0 6px 24px 0 rgba(140,152,164,.125);
+
+
+
+
+
+// -----------------
+// Responsive
+// -----------------
+
+$md: 1280px;
+$sm: 768px;
+
+@mixin lg {
+    @media not screen and (max-width: $md) { @content }
+}
+@mixin md {
+    @media (max-width: $md) and (not (max-width: $sm)) { @content }
+}
+@mixin sm {
+    @media (max-width: $sm) { @content }
+}
+@mixin lg-md {
+    @media not screen and (max-width: $sm) { @content }
+}
+@mixin md-sm {
+    @media (max-width: $md) { @content }
+}
+
+
+
+// --------------------
+// Color combinations
+// --------------------
+
+%grey { background: $grey-light; color: $grey; }
+
+%blue { color: $white; background: $blue; }
+%blue-light { color: $blue-dark; background: $blue-light; }
+%blue-dark { color: $white; background: $blue-dark; }
+
+%red { color: $white; background: $red; }
+%red-light { color: $red-dark; background: $red-light; }
+%red-dark { color: $white; background: $red-dark; }
+
+%yellow { color: $white; background: $yellow; }
+%yellow-light { color: $yellow-dark; background: $yellow-light; }
+%yellow-dark { color: $white; background: $yellow-dark; }
+
+%green { color: $white; background: $green; }
+%green-light { color: $green-dark; background: $green-light; }
+%green-dark { color: $white; background: $green-dark; }
+
+
+
+// --------------------
+// Helpers
+// --------------------
+
+@mixin rect ($width, $height, $x, $y, $w, $h) {
+    position: absolute;
+    left: calc($x / $width * 100%);
+    top: calc($y / $height * 100%);
+    width: calc($w / $width * 100%);
+    height: calc($h / $height * 100%);
+}

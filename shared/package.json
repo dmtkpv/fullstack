@@ -1,0 +1,7 @@
+{
+  "name": "@vacature/shared",
+  "type": "module",
+  "exports": {
+    "./*": "./*"
+  }
+}

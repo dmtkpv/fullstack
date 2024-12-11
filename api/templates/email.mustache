@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body style="background-color: #FFFFFF; font-family: Arial, sans-serif; font-size: 15px; line-height: 1.5">
+<table border="0" cellspacing="0" width="100%">
+    <tr>
+
+
+        <!--
+            Padding left
+        -->
+
+        <td>
+            <div style="width: 24px"></div>
+        </td>
+
+
+
+        <!--
+            Content
+        -->
+
+        <td width="560">
+
+
+            <!-- header -->
+
+            <div style="padding: 24px;">
+                {{#email_logo}}
+                    <img src="{{ ADMIN_URL }}/assets/{{ email_logo }}" alt="{{ project_name }}" width="141">
+                {{/email_logo}}
+            </div>
+            
+
+            <!-- message -->
+
+            <div style="border-radius: 8px; border: 1px solid #ecedf2; padding: 24px;">
+
+                <p style="margin: 0 0 12px 0">{{{ email_greeting }}}</p>
+                <p style="margin: 0 0 12px 0">{{{ body }}}</p>
+
+                {{#message}}
+                    <div style="border-left: 2px solid #ecedf2; padding-left: 12px; color: #696969">{{{ message }}}</div>
+                {{/message}}
+
+                {{#headline}}
+                    <div style="font-size: 48px; letter-spacing: 4px;">{{ headline }}</div>
+                {{/headline}}
+
+                {{#button}}
+                    <a style="display: inline-block; text-decoration: none; background: #00a0ff; color: #FFFFFF; padding: 12px 24px; border-radius: 8px; margin-top: 16px" href="{{ button_url }}">{{ button }}</a>
+                {{/button}}
+
+                <div style="border-bottom: 1px solid #ecedf2; margin: 24px 0"></div>
+                <i>{{{ email_signature }}}</i>
+
+            </div>
+
+
+            <!-- footer -->
+
+            <div style="text-align: center; font-size: 13px; color: #696969; padding: 16px 0;">{{ email_footer }}</div>
+
+
+        </td>
+
+
+
+        <!--
+            Padding right
+        -->
+
+        <td>
+            <div style="width: 24px"></div>
+        </td>
+
+
+
+    </tr>
+</table>
+</body>
+</html>
